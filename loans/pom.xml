@@ -115,7 +115,7 @@
 				<version>3.4.2</version>
 				<configuration>
 					<to>
-						<image>sunnyrider/${project.artifactId}S11obs</image>
+						<image>sunnyrider/${project.artifactId}:S11obs</image>
 					</to>
 				</configuration>
 			</plugin>

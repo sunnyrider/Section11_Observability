@@ -95,7 +95,7 @@ services:
       service: network-deploy-service
 
   configserver:
-    image: "sunnyrider/configserverS11obs"
+    image: "sunnyrider/configserver:S11obs"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -114,7 +114,7 @@ services:
       service: microservice-base-config
 
   eurekaserver:
-    image: "sunnyrider/eurekaserverS11obs"
+    image: "sunnyrider/eurekaserver:S11obs"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -136,7 +136,7 @@ services:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
 
   accounts:
-    image: "sunnyrider/accountsS11obs"
+    image: "sunnyrider/accounts:S11obs"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -161,7 +161,7 @@ services:
       service: microservice-eureka-config
 
   loans:
-    image: "sunnyrider/loansS11obs"
+    image: "sunnyrider/loans:S11obs"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -186,7 +186,7 @@ services:
       service: microservice-eureka-config
 
   cards:
-    image: "sunnyrider/cardsS11obs"
+    image: "sunnyrider/cards:S11obs"
     container_name: cards-ms
     ports:
       - "9000:9000"
@@ -211,7 +211,7 @@ services:
       service: microservice-eureka-config
 
   gatewayserver:
-    image: "sunnyrider/gatewayserverS11obs"
+    image: "sunnyrider/gatewayserver:S11obs"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"
