@@ -119,7 +119,7 @@
 				<version>3.4.2</version>
 				<configuration>
 					<to>
-						<image>docker.io/sunnyrider/${project.artifactId}:S10rs</image>
+						<image>docker.io/sunnyrider/${project.artifactId}S11obs</image>
 					</to>
 				</configuration>
 			</plugin>
