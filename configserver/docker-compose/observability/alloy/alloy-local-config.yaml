@@ -1,6 +1,6 @@
 discovery.docker "flog_scrape" {
     host             = "unix:///var/run/docker.sock"
-    refresh_interval = "5s"
+    refresh_interval = "60s"
 }
 
 discovery.relabel "flog_scrape" {
@@ -11,6 +11,11 @@ discovery.relabel "flog_scrape" {
         regex         = "/(.*)"
         target_label  = "container"
     }
+    rule {
+        action        = "drop"
+        source_labels = ["__meta_docker_container_name"]
+        regex         = "drop"
+    }
 }
 
 loki.source.docker "flog_scrape" {
@@ -18,7 +23,7 @@ loki.source.docker "flog_scrape" {
     targets          = discovery.docker.flog_scrape.targets
     forward_to       = [loki.write.default.receiver]
     relabel_rules    = discovery.relabel.flog_scrape.rules
-    refresh_interval = "5s"
+    refresh_interval = "60s"
 }
 
 loki.write "default" {

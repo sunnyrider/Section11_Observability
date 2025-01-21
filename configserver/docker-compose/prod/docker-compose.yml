@@ -120,7 +120,7 @@ services:
   backend:
     image: grafana/loki:latest
     volumes:
-      - ./loki-config.yaml:/etc/loki/config.yaml
+      - ../observability/loki/loki-config.yaml:/etc/loki/config.yaml
     ports:
       - "3100"
       - "7946"
@@ -197,6 +197,13 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
+
+  flog:
+    image: mingrammer/flog
+    command: -f json -d 200ms -l
     extends:
       file: common-config.yml
       service: network-deploy-service
