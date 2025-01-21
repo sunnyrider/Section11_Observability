@@ -11,11 +11,6 @@ discovery.relabel "flog_scrape" {
         regex         = "/(.*)"
         target_label  = "container"
     }
-    rule {
-        action        = "drop"
-        source_labels = ["__meta_docker_container_name"]
-        regex         = "drop"
-    }
 }
 
 loki.source.docker "flog_scrape" {
