@@ -44,5 +44,13 @@ management:
     tags:
       application: ${spring.application.name}
 
+logging:
+  level:
+    com:
+      eazybytes:
+        configserver: DEBUG
+  pattern:
+    level: "%5p[${spring.application.name},%X{trace_id},%X{span_id}]"
+
 encrypt:
   key: "IchMagUrinAusDerScheideVonFrauenTrinken"
