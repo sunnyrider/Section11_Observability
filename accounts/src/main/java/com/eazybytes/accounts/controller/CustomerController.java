@@ -34,10 +34,10 @@ import jakarta.validation.constraints.Pattern;
 public class CustomerController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
-	private final ICustomerService custemerService;
+	private final ICustomerService customersService;
 
 	public CustomerController(ICustomerService service) {
-		custemerService = service;
+		customersService = service;
 	}
 
 	@Operation(
@@ -63,10 +63,9 @@ public class CustomerController {
     		String correlationId, @RequestParam
                    @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
                    String mobileNumber){
-		logger.debug("fetchCustomerDetails Method START");
-        CustomerDetailsDto customerDetailsDto = custemerService
-        		.fetchCustomerDetails(correlationId, mobileNumber);
-        logger.debug("fetchCustomerDetails Method FINISHED");
+		logger.debug("fetchCustomerDetails method start");
+        CustomerDetailsDto customerDetailsDto = customersService.fetchCustomerDetails(mobileNumber, correlationId);
+        logger.debug("fetchCustomerDetails method end");
         return ResponseEntity.status(HttpStatus.OK).body(customerDetailsDto);
     }
 }

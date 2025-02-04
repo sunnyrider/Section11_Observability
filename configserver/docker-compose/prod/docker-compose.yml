@@ -348,9 +348,9 @@ services:
     image: "sunnyrider/accounts:S11obs"
     container_name: accounts-ms
     ports:
-      - "8080:8080"
+      - "8083:8083"
     healthcheck:
-      test: "timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1"
+      test: "timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8083' || exit 1"
       interval: 10s
       timeout: 5s
       retries: 10
